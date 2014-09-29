@@ -8,27 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		3003A02419D9D98C00D24953 /* TAStringDataStructures.h in Headers */ = {isa = PBXBuildFile; fileRef = 3003A02319D9D98C00D24953 /* TAStringDataStructures.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3003A02E19D9D98C00D24953 /* TAStringDataStructuresTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003A02D19D9D98C00D24953 /* TAStringDataStructuresTests.m */; };
+		3003A03C19D9D9C100D24953 /* TATrie.h in Headers */ = {isa = PBXBuildFile; fileRef = 3003A03819D9D9C100D24953 /* TATrie.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3003A03D19D9D9C100D24953 /* TATrie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003A03919D9D9C100D24953 /* TATrie.m */; };
+		3003A03E19D9D9C100D24953 /* TATrieNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 3003A03A19D9D9C100D24953 /* TATrieNode.h */; };
+		3003A03F19D9D9C100D24953 /* TATrieNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003A03B19D9D9C100D24953 /* TATrieNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3003A01E19D9D98C00D24953 /* TAStringDataStructures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TAStringDataStructures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3003A02219D9D98C00D24953 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3003A02319D9D98C00D24953 /* TAStringDataStructures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TAStringDataStructures.h; sourceTree = "<group>"; };
-		3003A02919D9D98C00D24953 /* TAStringDataStructuresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TAStringDataStructuresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3003A02C19D9D98C00D24953 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3003A02D19D9D98C00D24953 /* TAStringDataStructuresTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAStringDataStructuresTests.m; sourceTree = "<group>"; };
+		3003A03819D9D9C100D24953 /* TATrie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TATrie.h; sourceTree = "<group>"; };
+		3003A03919D9D9C100D24953 /* TATrie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATrie.m; sourceTree = "<group>"; };
+		3003A03A19D9D9C100D24953 /* TATrieNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TATrieNode.h; sourceTree = "<group>"; };
+		3003A03B19D9D9C100D24953 /* TATrieNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATrieNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3003A01A19D9D98C00D24953 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3003A02619D9D98C00D24953 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,7 +39,6 @@
 			isa = PBXGroup;
 			children = (
 				3003A02019D9D98C00D24953 /* TAStringDataStructures */,
-				3003A02A19D9D98C00D24953 /* TAStringDataStructuresTests */,
 				3003A01F19D9D98C00D24953 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,7 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				3003A01E19D9D98C00D24953 /* TAStringDataStructures.framework */,
-				3003A02919D9D98C00D24953 /* TAStringDataStructuresTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				3003A02319D9D98C00D24953 /* TAStringDataStructures.h */,
+				3003A03719D9D9AD00D24953 /* TATrie */,
 				3003A02119D9D98C00D24953 /* Supporting Files */,
 			);
 			path = TAStringDataStructures;
@@ -73,21 +69,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3003A02A19D9D98C00D24953 /* TAStringDataStructuresTests */ = {
+		3003A03719D9D9AD00D24953 /* TATrie */ = {
 			isa = PBXGroup;
 			children = (
-				3003A02D19D9D98C00D24953 /* TAStringDataStructuresTests.m */,
-				3003A02B19D9D98C00D24953 /* Supporting Files */,
+				3003A03819D9D9C100D24953 /* TATrie.h */,
+				3003A03919D9D9C100D24953 /* TATrie.m */,
+				3003A03A19D9D9C100D24953 /* TATrieNode.h */,
+				3003A03B19D9D9C100D24953 /* TATrieNode.m */,
 			);
-			path = TAStringDataStructuresTests;
-			sourceTree = "<group>";
-		};
-		3003A02B19D9D98C00D24953 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3003A02C19D9D98C00D24953 /* Info.plist */,
-			);
-			name = "Supporting Files";
+			name = TATrie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +88,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3003A02419D9D98C00D24953 /* TAStringDataStructures.h in Headers */,
+				3003A03C19D9D9C100D24953 /* TATrie.h in Headers */,
+				3003A03E19D9D9C100D24953 /* TATrieNode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,23 +114,6 @@
 			productReference = 3003A01E19D9D98C00D24953 /* TAStringDataStructures.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3003A02819D9D98C00D24953 /* TAStringDataStructuresTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3003A03419D9D98C00D24953 /* Build configuration list for PBXNativeTarget "TAStringDataStructuresTests" */;
-			buildPhases = (
-				3003A02519D9D98C00D24953 /* Sources */,
-				3003A02619D9D98C00D24953 /* Frameworks */,
-				3003A02719D9D98C00D24953 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = TAStringDataStructuresTests;
-			productName = TAStringDataStructuresTests;
-			productReference = 3003A02919D9D98C00D24953 /* TAStringDataStructuresTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -149,9 +124,6 @@
 				ORGANIZATIONNAME = ToddAnderson;
 				TargetAttributes = {
 					3003A01D19D9D98C00D24953 = {
-						CreatedOnToolsVersion = 6.0.1;
-					};
-					3003A02819D9D98C00D24953 = {
 						CreatedOnToolsVersion = 6.0.1;
 					};
 				};
@@ -169,20 +141,12 @@
 			projectRoot = "";
 			targets = (
 				3003A01D19D9D98C00D24953 /* TAStringDataStructures */,
-				3003A02819D9D98C00D24953 /* TAStringDataStructuresTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3003A01C19D9D98C00D24953 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3003A02719D9D98C00D24953 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,14 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3003A02519D9D98C00D24953 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3003A02E19D9D98C00D24953 /* TAStringDataStructuresTests.m in Sources */,
+				3003A03F19D9D9C100D24953 /* TATrieNode.m in Sources */,
+				3003A03D19D9D9C100D24953 /* TATrie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,36 +282,6 @@
 			};
 			name = Release;
 		};
-		3003A03519D9D98C00D24953 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TAStringDataStructuresTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		3003A03619D9D98C00D24953 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TAStringDataStructuresTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -371,14 +299,6 @@
 			buildConfigurations = (
 				3003A03219D9D98C00D24953 /* Debug */,
 				3003A03319D9D98C00D24953 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		3003A03419D9D98C00D24953 /* Build configuration list for PBXNativeTarget "TAStringDataStructuresTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3003A03519D9D98C00D24953 /* Debug */,
-				3003A03619D9D98C00D24953 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
