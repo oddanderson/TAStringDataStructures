@@ -16,20 +16,14 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TAStringDataStructures"
-  s.version      = "0.0.1"
-  s.summary      = "A short description of TAStringDataStructures."
+  s.version      = "1.0"
+  s.summary      = "String-based data structures"
 
   s.description  = <<-DESC
-                   A longer description of TAStringDataStructures in Markdown format.
-
-                   * Think: Why did you write this? What is the focus? What does it do?
-                   * CocoaPods will be using this to generate tags, and improve search results.
-                   * Try to keep it short, snappy and to the point.
-                   * Finally, don't worry about the indent, CocoaPods strips it!
+                   Provides open-source implementations of string based data structures 
+                   written in Objective-C such as Trie tree and later, Suffix Tree
                    DESC
 
-  s.homepage     = "http://EXAMPLE/TAStringDataStructures"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -39,8 +33,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -53,10 +46,8 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
   
-  s.author             = { "todd100state" => "todd@100state.com" }
-  # Or just: s.author    = "todd100state"
-  # s.authors            = { "todd100state" => "todd@100state.com" }
-  # s.social_media_url   = "http://twitter.com/todd100state"
+  s.homepage           = 'https://github.com/tdansel88/TAStringDataStructures'
+  s.author             = { "todd anderson" => "tdansel88@gmail.com" }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -64,7 +55,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  # s.platform     = :ios
+  s.platform     = :ios
   # s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
@@ -78,7 +69,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://EXAMPLE/TAStringDataStructures.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/tdansel88/TAStringDataStructures.git", :tag => "v1.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,10 +80,9 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "TAStringDataStructures/*.{h,m}"
 
-  # s.public_header_files = "Classes/**/*.h"
+  s.public_header_files = "**/TATrie.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -128,7 +118,7 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
+  s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"

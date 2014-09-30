@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 ToddAnderson. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+
 
 //! Project version number for TAStringDataStructures.
 FOUNDATION_EXPORT double TAStringDataStructuresVersionNumber;
