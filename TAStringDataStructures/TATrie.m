@@ -22,7 +22,11 @@
 }
 
 - (void)addWord:(NSString *)word {
-    [_topNode addSubstring:word];
+    [_topNode addSubstring:word withObject:nil];
+}
+
+- (void)setObject:(id)object forWord:(NSString *)word {
+    [_topNode addSubstring:word withObject:object];
 }
 
 - (NSArray *)wordsThatStartWith:(NSString *)substring {
@@ -30,7 +34,15 @@
 }
 
 - (NSArray *)wordsThatStartWith:(NSString *)substring caseSensitive:(BOOL)caseSensitive {
-    return [_topNode nodesThatStartWithSubstring:substring caseSensitive:caseSensitive];
+    return [_topNode nodesThatStartWithSubstring:substring caseSensitive:caseSensitive returnWords:YES];
+}
+
+- (NSArray *)objectsForWordsThatStartWith:(NSString *)substring {
+    return [self objectsForWordsThatStartWith:substring caseSensitive:NO];
+}
+
+- (NSArray *)objectsForWordsThatStartWith:(NSString *)substring caseSensitive:(BOOL)caseSensitive {
+    return [_topNode nodesThatStartWithSubstring:substring caseSensitive:caseSensitive returnWords:NO];
 }
 
 - (BOOL)containsWord:(NSString *)word caseSensitive:(BOOL)caseSensitive {
@@ -43,6 +55,10 @@
 
 - (BOOL)removeWord:(NSString *)word {
     return [_topNode removeWord:word];
+}
+
+- (id)objectForWord:(NSString *)word {
+    return [_topNode objectForWord:word];
 }
 
 @end

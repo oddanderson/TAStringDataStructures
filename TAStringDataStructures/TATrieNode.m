@@ -10,6 +10,7 @@
 
 @interface TATrieNode ()
 @property (nonatomic, getter = isFinal) BOOL final;
+@property (nonatomic) id object;
 @end
 
 @implementation TATrieNode {
@@ -24,10 +25,11 @@
     return self;
 }
 
-- (void)addSubstring:(NSString *)substring {
+- (void)addSubstring:(NSString *)substring withObject:(id)object{
     
     if (substring.length == 0) {
         _final = YES;
+        self.object = object;
         return;
     }
     
@@ -37,26 +39,34 @@
         nextChild = [[TATrieNode alloc] init];
         [_children setObject:nextChild forKey:firstChar];
     }
-    [nextChild addSubstring:[substring substringFromIndex:1]];
+    [nextChild addSubstring:[substring substringFromIndex:1] withObject:object];
 }
 
-- (NSArray *)nodesThatStartWithSubstring:(NSString *)substring caseSensitive:(BOOL)caseSensitive {
+- (NSArray *)nodesThatStartWithSubstring:(NSString *)substring
+                           caseSensitive:(BOOL)caseSensitive
+                             returnWords:(BOOL)returnWords {
     
     NSMutableString *compiledWord = [[NSMutableString alloc] init];
     NSMutableArray *array = [NSMutableArray new];
-    [self _addNodesThatStartWithSubstring:substring toArray:array compiledWord:compiledWord caseSensitive:caseSensitive];
+    [self _addNodesThatStartWithSubstring:substring toArray:array compiledWord:compiledWord caseSensitive:caseSensitive returnWords:returnWords];
     return array;
 }
 
 - (void)_addNodesThatStartWithSubstring:(NSString *)substring
                                 toArray:(NSMutableArray *)array
                            compiledWord:(NSMutableString *)word
-                          caseSensitive:(BOOL)caseSensitive {
+                          caseSensitive:(BOOL)caseSensitive
+                            returnWords:(BOOL)returnWords {
     if (substring.length == 0) {
         if (self.isFinal) {
-            [array addObject:word];
+            if (returnWords) {
+                [array addObject:word];
+            } else {
+                [array addObject:self.object];
+            }
+            
         }
-        [self _addAllChildNodesToArray:array compiledWord:word];
+        [self _addAllChildNodesToArray:array compiledWord:word returnWords:returnWords];
         return;
     }
     NSString *firstChar = [substring substringToIndex:1];
@@ -66,7 +76,8 @@
                                                  toArray:array
                                             compiledWord:word
                                            caseSensitive:caseSensitive
-                                          firstCharacter:firstChar];
+                                          firstCharacter:firstChar
+                                             returnWords:returnWords];
     } else {
         NSString *lowercaseChar = [firstChar lowercaseString];
         NSString *uppercaseChar = [firstChar uppercaseString];
@@ -74,12 +85,14 @@
                                                  toArray:array
                                             compiledWord:word
                                            caseSensitive:caseSensitive
-                                          firstCharacter:lowercaseChar];
+                                          firstCharacter:lowercaseChar
+                                             returnWords:returnWords];
         [self _recursivelyAddNodesThatStartWithSubstring:newSubstring
                                                  toArray:array
                                             compiledWord:word
                                            caseSensitive:caseSensitive
-                                          firstCharacter:uppercaseChar];
+                                          firstCharacter:uppercaseChar
+                                            returnWords:returnWords];
 
     }
     
@@ -89,24 +102,35 @@
                                            toArray:(NSMutableArray *)array
                                       compiledWord:(NSString *)compiledWord
                                      caseSensitive:(BOOL)caseSensitive
-                                    firstCharacter:(NSString *)firstChar {
+                                    firstCharacter:(NSString *)firstChar
+                                       returnWords:(BOOL)returnWords {
     TATrieNode *nextChild = [_children objectForKey:firstChar];
     if (nextChild) {
         NSMutableString *newWord = [[NSMutableString alloc] initWithString:compiledWord];
         [newWord appendString:firstChar];
-        [nextChild _addNodesThatStartWithSubstring:substring toArray:array compiledWord:newWord caseSensitive:caseSensitive];
+        [nextChild _addNodesThatStartWithSubstring:substring
+                                           toArray:array
+                                      compiledWord:newWord
+                                     caseSensitive:caseSensitive
+                                       returnWords:returnWords];
     }
 }
 
-- (void)_addAllChildNodesToArray:(NSMutableArray *)array compiledWord:(NSMutableString *)word {
+- (void)_addAllChildNodesToArray:(NSMutableArray *)array
+                    compiledWord:(NSMutableString *)word
+                     returnWords:(BOOL)returnWords {
     for (NSString *value in _children.allKeys) {
         TATrieNode *child = _children[value];
         NSMutableString *newWord = [[NSMutableString alloc] initWithString:word];
         [newWord appendString:value];
         if (child.isFinal) {
-            [array addObject:newWord];
+            if (returnWords) {
+                [array addObject:newWord];
+            } else {
+                [array addObject:child.object];
+            }
         }
-        [child _addAllChildNodesToArray:array compiledWord:newWord];
+        [child _addAllChildNodesToArray:array compiledWord:newWord returnWords:returnWords];
     }
 }
 
@@ -185,6 +209,14 @@
     } else {
         return nil;
     }
+}
+
+- (id)objectForWord:(NSString *)word {
+    TATrieNode *node = [self _nodeForString:word];
+    if (node) {
+        return node.object;
+    }
+    return nil;
 }
 
 

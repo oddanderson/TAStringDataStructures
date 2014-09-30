@@ -10,9 +10,10 @@
 
 @interface TATrieNode : NSObject
 
-- (void)addSubstring:(NSString *)substring;
-- (NSArray *)nodesThatStartWithSubstring:(NSString *)substring caseSensitive:(BOOL)caseSensitive;
+- (void)addSubstring:(NSString *)substring withObject:(id)object;
+- (NSArray *)nodesThatStartWithSubstring:(NSString *)substring caseSensitive:(BOOL)caseSensitive returnWords:(BOOL)returnWords;
 - (BOOL)containsWord:(NSString *)word caseSensitive:(BOOL)caseSensitive;
 - (BOOL)removeWord:(NSString *)word;
+- (id)objectForWord:(NSString *)word;
 
 @end

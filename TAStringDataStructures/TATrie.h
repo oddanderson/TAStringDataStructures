@@ -17,14 +17,29 @@
 - (void)addWord:(NSString *)word;
 
 /**
- * Get all of words that start with the given string. Case sensitive = NO
+ * Does addWord, but allows you to set an object to the word similar to a dictionary
+ */
+- (void)setObject:(id)object forWord:(NSString *)word;
+
+/**
+ * Get all words that start with the given string. Case sensitive = NO
  */
 - (NSArray *)wordsThatStartWith:(NSString *)substring;
 
 /**
- * Get all of words that start with the given string.
+ * Get all words that start with the given string.
  */
 - (NSArray *)wordsThatStartWith:(NSString *)substring caseSensitive:(BOOL)caseSensitive;
+
+/**
+ * Get all objects for words that start with the given string. Case sensitive = NO
+ */
+- (NSArray *)objectsForWordsThatStartWith:(NSString *)substring;
+
+/**
+ * Get all objects for words that start with the given string.
+ */
+- (NSArray *)objectsForWordsThatStartWith:(NSString *)substring caseSensitive:(BOOL)caseSensitive;
 
 /**
  * Remove a word from the trie. Assumes case does not matter. Returns true if it found word
@@ -48,5 +63,10 @@
  * Returns true if the Trie contains the specified word.  Case sensitive = NO
  */
 - (BOOL)containsWord:(NSString *)word;
+
+/**
+ * Returns the object for the word, case sensitive = YES
+ */
+- (id)objectForWord:(NSString *)word;
 
 @end
