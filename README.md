@@ -6,7 +6,7 @@ In order to use this you may
 
 1. Download source and copy into project
 2. Download source and build as framework
-3. Use Cocoapods
+3. Use CocoaPods
 
 
 For an example of how to use the Trie, as well as an example PodFile, please see https://github.com/tdansel88/FastTextSearch
